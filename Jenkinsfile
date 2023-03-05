@@ -9,7 +9,7 @@ pipeline {
         }
         stage('git clone') {
             steps {
-                git branch: 'main', credentialsId: 'git_credentials', url: 'https://github.com/asdcmsic/webapp.git'
+                git branch: 'main', credentialsId: 'git_credentials', url: 'https://github.com/asdcmsic/hello-students.git'
             }
         }
         stage('build') {
@@ -19,7 +19,7 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'sudo cp -v webapp/target/webapp.war /opt/tomcat/updated/webapps/'
+                sh 'sudo cp -v webapp/target/webapp.war /opt/tomcat/latest/webapps/'
             }
         }
     }
